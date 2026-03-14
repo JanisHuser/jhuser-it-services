@@ -196,8 +196,14 @@ function About() {
     <section id="ueber-mich" className="py-20 px-6 bg-[#f4f2ff]/40">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
         <div className="flex-shrink-0">
-          <div className="w-48 h-48 rounded-3xl bg-[#6B5CE7]/15 flex items-center justify-center shadow-lg">
-            <span className="text-7xl">👨‍💻</span>
+          <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-lg">
+            <Image
+              src="/me.png"
+              alt="Janis Huser"
+              width={192}
+              height={192}
+              className="object-cover w-full h-full"
+            />
           </div>
         </div>
         <div>
