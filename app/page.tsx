@@ -16,8 +16,9 @@ function Hero() {
             <span className="text-[#6B5CE7]">Ich löse sie für Sie.</span>
           </h1>
           <p className="text-lg text-gray-600 mb-8 max-w-lg">
-            Ob Computer streikt, Internet hakelt oder neues Gerät einrichten – ich
+            Ob der Computer streikt, das Internet hakelt oder ein neues Gerät einrichten – ich
             helfe Ihnen schnell, verständlich und ohne kompliziertes Fachchinesisch.
+            Im Kanton Glarus und Umgebung komme ich direkt zu Ihnen.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
             <a
@@ -37,11 +38,11 @@ function Hero() {
         <div className="flex-shrink-0">
           <div className="w-56 h-56 rounded-3xl bg-[#6B5CE7]/10 flex items-center justify-center shadow-xl">
             <Image
-              src={`${process.env.NODE_ENV === "production" ? "/jhuser-it-services" : ""}/logo.png`}
-              alt="J.Huser IT-Services"
+              src={`${process.env.NODE_ENV === "production" ? "/jhuser-it-services" : ""}/me.png`}
+              alt="Janis Huser"
               width={160}
               height={160}
-              className="object-contain"
+              className="object-cover rounded-2xl"
               priority
             />
           </div>
@@ -55,7 +56,7 @@ function Hero() {
 function TrustBar() {
   const points = [
     { icon: "✅", text: "Kein Fachchinesisch" },
-    { icon: "🏠", text: "Komme zu Ihnen nach Hause" },
+    { icon: "🏔️", text: "Kanton Glarus & Umgebung" },
     { icon: "💬", text: "Verständliche Erklärungen" },
     { icon: "⚡", text: "Schnelle Hilfe" },
     { icon: "🔒", text: "Seriös & diskret" },
@@ -213,7 +214,7 @@ function About() {
           </p>
           <div className="flex flex-wrap gap-3">
             {[
-              "Persönlich & lokal",
+              "Kanton Glarus & Umgebung",
               "Faire Preise",
               "Erfahrung seit Jahren",
               "Datenschutz wird ernst genommen",
