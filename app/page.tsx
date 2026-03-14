@@ -282,6 +282,41 @@ function Contact() {
   );
 }
 
+// ─── Impressum ────────────────────────────────────────────────────────────────
+function Impressum() {
+  return (
+    <section id="impressum" className="py-20 px-6 bg-white">
+      <div className="max-w-2xl mx-auto">
+        <h2 className="text-3xl font-extrabold text-[#1a1a2e] mb-8">Impressum</h2>
+        <div className="text-gray-600 leading-relaxed space-y-4">
+          <div>
+            <p className="font-semibold text-[#1a1a2e]">Anbieter</p>
+            <p>J.Huser IT Services</p>
+            <p>Abläschstrasse 66</p>
+            <p>8750 Glarus</p>
+            <p>Schweiz</p>
+          </div>
+          <div>
+            <p className="font-semibold text-[#1a1a2e]">Kontakt</p>
+            <p>
+              E-Mail:{" "}
+              <a href="mailto:info@jhuser-it-services.ch" className="text-[#6B5CE7] hover:underline">
+                info@jhuser-it-services.ch
+              </a>
+            </p>
+            <p>
+              Telefon:{" "}
+              <a href="tel:+41764500282" className="text-[#6B5CE7] hover:underline">
+                +41 76 450 02 82
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── Footer ───────────────────────────────────────────────────────────────────
 function Footer() {
   return (
@@ -300,7 +335,7 @@ function Footer() {
         </a>
         <p>© {new Date().getFullYear()} J.Huser IT-Services · Schweiz</p>
         <div className="flex gap-6">
-          <a href="#" className="hover:text-white transition-colors">Impressum</a>
+          <a href="#impressum" className="hover:text-white transition-colors">Impressum</a>
           <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
         </div>
       </div>
@@ -320,6 +355,7 @@ export default function Home() {
         <HowItWorks />
         <About />
         <Contact />
+        <Impressum />
       </main>
       <Footer />
     </>
