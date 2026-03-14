@@ -1,32 +1,5 @@
 import Image from "next/image";
-
-// ─── Nav ─────────────────────────────────────────────────────────────────────
-function Nav() {
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur border-b border-gray-100">
-      <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="flex items-center gap-2.5">
-          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="36" height="36" rx="9" fill="#6B5CE7"/>
-            <text x="18" y="24" textAnchor="middle" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="16" fill="white" letterSpacing="-0.5">JH</text>
-          </svg>
-          <span className="font-bold text-[#1a1a2e] text-sm leading-tight">J.Huser<br/><span className="font-normal text-gray-400 text-xs tracking-wide">IT-Services</span></span>
-        </a>
-        <nav className="hidden md:flex gap-8 text-sm font-medium text-gray-600">
-          <a href="#leistungen" className="hover:text-[#6B5CE7] transition-colors">Leistungen</a>
-          <a href="#ueber-mich" className="hover:text-[#6B5CE7] transition-colors">Über mich</a>
-          <a href="#kontakt" className="hover:text-[#6B5CE7] transition-colors">Kontakt</a>
-        </nav>
-        <a
-          href="#kontakt"
-          className="bg-[#6B5CE7] hover:bg-[#4A3DC7] text-white text-sm font-semibold px-4 py-2 rounded-full transition-colors"
-        >
-          Jetzt anfragen
-        </a>
-      </div>
-    </header>
-  );
-}
+import Nav from "./Nav";
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero() {
@@ -313,13 +286,17 @@ function Footer() {
   return (
     <footer className="bg-[#1a1a2e] text-gray-400 py-10 px-6">
       <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-        <Image
-          src="/logo.png"
-          alt="J.Huser IT-Services"
-          width={80}
-          height={32}
-          className="object-contain brightness-200 opacity-70"
-        />
+        <a href="#top" className="flex items-center gap-2.5">
+          <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="36" height="36" rx="9" fill="#6B5CE7" />
+            <text x="18" y="24" textAnchor="middle" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="16" fill="white" letterSpacing="-0.5">JH</text>
+          </svg>
+          <span className="font-bold text-white/80 text-sm leading-tight">
+            J.Huser
+            <br />
+            <span className="font-normal text-gray-500 text-xs tracking-wide">IT-Services</span>
+          </span>
+        </a>
         <p>© {new Date().getFullYear()} J.Huser IT-Services · Schweiz</p>
         <div className="flex gap-6">
           <a href="#" className="hover:text-white transition-colors">Impressum</a>
