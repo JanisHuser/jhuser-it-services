@@ -143,6 +143,54 @@ function Services() {
   );
 }
 
+// ─── Pricing ──────────────────────────────────────────────────────────────────
+const pricingItems = [
+  {
+    title: "IT-Support",
+    price: "75 CHF / Stunde",
+    detail: "Abrechnung im 15-Minuten-Takt",
+  },
+  {
+    title: "Software-Development",
+    price: "160 CHF / Stunde",
+    detail: "Abrechnung im 15-Minuten-Takt",
+  },
+  {
+    title: "Anreise",
+    price: "0.50 CHF / km",
+    detail: "Faire Wegpauschale in der Region und darüber hinaus",
+  },
+];
+
+function Pricing() {
+  return (
+    <section id="preise" className="py-20 px-6 bg-white">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-extrabold text-[#1a1a2e] mb-3">Klare Preise</h2>
+          <p className="text-gray-500 max-w-2xl mx-auto">
+            Transparent, nachvollziehbar und ohne versteckte Kosten. Sie sehen vorab, womit Sie rechnen können.
+          </p>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {pricingItems.map((item) => (
+            <div
+              key={item.title}
+              className="rounded-3xl border border-gray-100 bg-[#f4f2ff]/60 p-7 shadow-sm"
+            >
+              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6B5CE7] mb-3">
+                {item.title}
+              </p>
+              <p className="text-3xl font-extrabold text-[#1a1a2e] mb-3">{item.price}</p>
+              <p className="text-sm text-gray-500 leading-relaxed">{item.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
 // ─── How it works ─────────────────────────────────────────────────────────────
 function HowItWorks() {
   const steps = [
@@ -358,6 +406,7 @@ export default function Home() {
         <Hero />
         <TrustBar />
         <Services />
+        <Pricing />
         <HowItWorks />
         <About />
         <Contact />

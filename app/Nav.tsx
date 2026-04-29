@@ -7,6 +7,7 @@ export default function Nav() {
 
   const links = [
     { href: "#leistungen", label: "Leistungen" },
+    { href: "#preise", label: "Preise" },
     { href: "#ueber-mich", label: "Über mich" },
     { href: "#kontakt", label: "Kontakt" },
   ];
