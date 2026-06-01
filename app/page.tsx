@@ -351,6 +351,10 @@ function Impressum() {
             <p>Schweiz</p>
           </div>
           <div>
+            <p className="font-semibold text-[#1a1a2e]">UID</p>
+            <p>CHE-299.352.957</p>
+          </div>
+          <div>
             <p className="font-semibold text-[#1a1a2e]">Kontakt</p>
             <p>
               E-Mail:{" "}
