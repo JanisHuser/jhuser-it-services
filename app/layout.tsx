@@ -77,7 +77,7 @@ const jsonLd = {
   description:
     "IT-Support & Computerhilfe im Kanton Glarus und Umgebung. Computer-Reparatur, WLAN-Einrichtung, Virenschutz und mehr.",
   url: siteUrl,
-  telephone: "+41764500282",
+  telephone: "+41775248685",
   email: "info@jhuser-it-services.ch",
   image: `${siteUrl}/logo.png`,
   address: {

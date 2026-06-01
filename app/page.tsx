@@ -308,13 +308,13 @@ function Contact() {
             </div>
           </a>
           <a
-            href="tel:+41764500282"
+            href="tel:+41775248685"
             className="flex items-center gap-4 bg-[#f4f2ff] hover:bg-[#6B5CE7] hover:text-white text-[#1a1a2e] rounded-2xl p-5 transition-all group"
           >
             <span className="text-3xl">📞</span>
             <div className="text-left">
               <p className="text-xs text-gray-400 group-hover:text-white/70 font-medium mb-0.5">Telefon</p>
-              <p className="font-semibold text-sm">+41 76 450 02 82</p>
+              <p className="font-semibold text-sm">+41 77 524 86 85</p>
             </div>
           </a>
         </div>
@@ -364,8 +364,8 @@ function Impressum() {
             </p>
             <p>
               Telefon:{" "}
-              <a href="tel:+41764500282" className="text-[#6B5CE7] hover:underline">
-                +41 76 450 02 82
+              <a href="tel:+41775248685" className="text-[#6B5CE7] hover:underline">
+                +41 77 524 86 85
               </a>
             </p>
           </div>
