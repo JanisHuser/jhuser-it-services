@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flyer 5 – J.Huser IT-Services Software & Digitalisierung</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap');
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #e0dce8;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      padding: 40px 20px;
+      font-family: 'Inter', system-ui, sans-serif;
+    }
+
+    .flyer {
+      width: 148mm;
+      min-height: 210mm;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+    }
+
+    .header {
+      background: #1a1a2e;
+      padding: 7mm 8mm 6mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .header::after {
+      content: '';
+      position: absolute;
+      bottom: -6mm;
+      left: 0;
+      right: 0;
+      height: 6mm;
+      background: #1a1a2e;
+      clip-path: ellipse(55% 100% at 50% 0%);
+    }
+
+    .logo-block { display: flex; align-items: center; gap: 3.5mm; }
+    .logo-img { width: 14mm; height: 14mm; object-fit: contain; filter: brightness(0) invert(1); }
+    .logo-text { color: white; line-height: 1.2; }
+    .logo-text .name { font-size: 5.2mm; font-weight: 800; letter-spacing: -0.02em; }
+    .logo-text .sub { font-size: 2.8mm; font-weight: 400; opacity: 0.8; letter-spacing: 0.12em; text-transform: uppercase; }
+
+    .badge {
+      background: rgba(107,92,231,0.3);
+      color: #a89cf5;
+      font-size: 2.4mm;
+      font-weight: 700;
+      padding: 1.5mm 3mm;
+      border-radius: 99px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      border: 1px solid rgba(107,92,231,0.5);
+      white-space: nowrap;
+    }
+
+    .hero {
+      padding: 14mm 8mm 8mm;
+      display: flex;
+      gap: 6mm;
+      align-items: flex-start;
+    }
+
+    .hero-text { flex: 1; }
+
+    .eyebrow {
+      font-size: 2.6mm;
+      font-weight: 700;
+      color: #6B5CE7;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 2.5mm;
+    }
+
+    .headline {
+      font-size: 7.8mm;
+      font-weight: 900;
+      color: #1a1a2e;
+      line-height: 1.1;
+      margin-bottom: 3mm;
+      letter-spacing: -0.02em;
+    }
+
+    .headline span { color: #6B5CE7; }
+
+    .subline { font-size: 3.2mm; color: #555; line-height: 1.6; }
+
+    .photo-wrap {
+      flex-shrink: 0;
+      width: 26mm;
+      height: 30mm;
+      border-radius: 4mm;
+      overflow: hidden;
+      border: 0.8mm solid #6B5CE7;
+      box-shadow: 3px 3px 0 #6B5CE7;
+    }
+
+    .photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+    .divider { margin: 0 8mm; border: none; border-top: 0.3mm solid #e8e4ff; }
+
+    .services { padding: 5mm 8mm 4mm; }
+
+    .section-label {
+      font-size: 2.6mm;
+      font-weight: 700;
+      color: #6B5CE7;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      margin-bottom: 3.5mm;
+    }
+
+    .services-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.2mm; }
+
+    .service-item {
+      display: flex;
+      align-items: center;
+      gap: 2.2mm;
+      background: #f4f2ff;
+      border-radius: 2.5mm;
+      padding: 2.5mm 3mm;
+    }
+
+    .service-icon { font-size: 4mm; line-height: 1; flex-shrink: 0; }
+    .service-text { font-size: 2.8mm; font-weight: 600; color: #1a1a2e; line-height: 1.35; }
+
+    /* Credentials bar */
+    .credentials {
+      display: flex;
+      align-items: stretch;
+      margin: 0 8mm;
+      background: #f4f2ff;
+      border-radius: 2.5mm;
+      overflow: hidden;
+      border: 0.3mm solid #e0d9ff;
+    }
+
+    .credential-item {
+      flex: 1;
+      padding: 3mm 4mm;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8mm;
+    }
+
+    .credential-item + .credential-item {
+      border-left: 0.3mm solid #e0d9ff;
+    }
+
+    .credential-label {
+      font-size: 2mm;
+      font-weight: 700;
+      color: #6B5CE7;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .credential-value {
+      font-size: 2.8mm;
+      font-weight: 700;
+      color: #1a1a2e;
+      line-height: 1.3;
+    }
+
+    /* Price – single highlighted row for this flyer */
+    .price-highlight {
+      margin: 4mm 8mm;
+      background: #f4f2ff;
+      border: 0.3mm solid #e0d9ff;
+      border-radius: 3mm;
+      padding: 4mm 5mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3mm;
+    }
+
+    .price-highlight-text { font-size: 3mm; color: #555; line-height: 1.5; }
+    .price-highlight-text strong { color: #1a1a2e; }
+    .price-highlight-value {
+      font-size: 5mm;
+      font-weight: 900;
+      color: #6B5CE7;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .qr-row { display: flex; gap: 2.5mm; margin: 0 8mm 4mm; }
+
+    .qr-block {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 2.5mm;
+      border-radius: 2.5mm;
+      padding: 2.5mm 3mm;
+    }
+
+    .qr-block.tel { background: #f0f4ff; border: 0.4mm solid #6B5CE7; }
+    .qr-block img { width: 18mm; height: 18mm; flex-shrink: 0; }
+    .qr-text { flex: 1; }
+    .qr-label { font-size: 2.2mm; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1mm; }
+    .qr-block.tel .qr-label { color: #6B5CE7; }
+    .qr-hint { font-size: 2.1mm; color: #555; }
+
+    .contact {
+      background: #1a1a2e;
+      margin-top: auto;
+      padding: 5mm 8mm;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3mm;
+    }
+
+    .contact-heading { color: white; font-size: 3.4mm; font-weight: 800; margin-bottom: 1.5mm; }
+    .contact-sub { color: rgba(255,255,255,0.6); font-size: 2.4mm; }
+    .contact-details { display: flex; flex-direction: column; gap: 1.5mm; align-items: flex-end; }
+    .contact-line { display: flex; align-items: center; gap: 1.5mm; color: white; font-size: 2.8mm; font-weight: 600; }
+    .contact-line .icon { font-size: 3mm; }
+
+    @media print {
+      body { background: white; padding: 0; }
+      .flyer { box-shadow: none; width: 148mm; min-height: 210mm; page-break-inside: avoid; }
+      @page { size: A5; margin: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="flyer">
+
+    <div class="header">
+      <div class="logo-block">
+        <img class="logo-img" src="../public/logo.png" alt="J.Huser IT-Services Logo" />
+        <div class="logo-text">
+          <div class="name">J.Huser</div>
+          <div class="sub">IT-Services</div>
+        </div>
+      </div>
+      <div class="badge">Software &amp; Digitalisierung</div>
+    </div>
+
+    <div class="hero">
+      <div class="hero-text">
+        <div class="eyebrow">IT-Beratung für KMU &amp; Gewerbe</div>
+        <h1 class="headline">Ihr Betrieb,<br/><span>digital &amp; effizient.</span></h1>
+        <p class="subline">
+          Prozesse optimieren, Kosten senken,<br/>
+          sicher in die Cloud – ich begleite<br/>
+          Sie vom ersten Schritt bis zur Umsetzung.
+        </p>
+      </div>
+      <div class="photo-wrap">
+        <img src="../public/me.png" alt="Janis Huser" />
+      </div>
+    </div>
+
+    <!-- Credentials statt Region-Bar -->
+    <div class="credentials">
+      <div class="credential-item">
+        <div class="credential-label">Ausbildung</div>
+        <div class="credential-value">BSc Informatik</div>
+      </div>
+      <div class="credential-item">
+        <div class="credential-label">Erfahrung</div>
+        <div class="credential-value">5+ Jahre IT</div>
+      </div>
+      <div class="credential-item">
+        <div class="credential-label">Branchen</div>
+        <div class="credential-value">KMU, Handel,<br/>Gastronomie &amp; mehr</div>
+      </div>
+    </div>
+
+    <hr class="divider" style="margin-top:4mm;" />
+
+    <div class="services">
+      <div class="section-label">Leistungen</div>
+      <div class="services-grid">
+        <div class="service-item">
+          <span class="service-icon">🗂️</span>
+          <span class="service-text">Papierloses Büro einführen</span>
+        </div>
+        <div class="service-item">
+          <span class="service-icon">☁️</span>
+          <span class="service-text">Cloud-Migration &amp; -Betrieb</span>
+        </div>
+        <div class="service-item">
+          <span class="service-icon">🔧</span>
+          <span class="service-text">Softwareauswahl &amp; Einführung</span>
+        </div>
+        <div class="service-item">
+          <span class="service-icon">📊</span>
+          <span class="service-text">Prozesse &amp; Abläufe optimieren</span>
+        </div>
+        <div class="service-item">
+          <span class="service-icon">🛡️</span>
+          <span class="service-text">IT-Sicherheit &amp; Datenschutz</span>
+        </div>
+        <div class="service-item">
+          <span class="service-icon">🖥️</span>
+          <span class="service-text">IT-Infrastruktur &amp; Support</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="price-highlight">
+      <div class="price-highlight-text">
+        <strong>Transparente Konditionen.</strong><br/>
+        Erstgespräch kostenlos – danach<br/>individuelle Offerte, keine Überraschungen.
+      </div>
+      <div class="price-highlight-value">160 CHF<br/><span style="font-size:2.8mm;font-weight:600;color:#888;">/ Std.</span></div>
+    </div>
+
+    <div class="qr-row">
+      <div class="qr-block tel" style="flex: 0 0 auto; width: 50%;">
+        <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=tel%3A%2B41775248685&color=6B5CE7&bgcolor=f0f4ff" alt="Anrufen QR-Code" />
+        <div class="qr-text">
+          <div class="qr-label">📞 Direkt anrufen</div>
+          <div class="qr-hint">QR-Code scannen</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="contact">
+      <div>
+        <div class="contact-heading">Jetzt Erstgespräch vereinbaren.</div>
+        <div class="contact-sub">Kostenlos &amp; unverbindlich</div>
+      </div>
+      <div class="contact-details">
+        <div class="contact-line"><span class="icon">📞</span><span>+41 77 524 86 85</span></div>
+        <div class="contact-line"><span class="icon">✉️</span><span>info@jhuser-it-services.ch</span></div>
+        <div class="contact-line"><span class="icon">🌐</span><span>jhuser-it-services.ch</span></div>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

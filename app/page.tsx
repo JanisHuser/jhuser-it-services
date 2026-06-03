@@ -1,48 +1,46 @@
 import Image from "next/image";
 import Nav from "./Nav";
+import Footer from "./Footer";
 
 // ─── Hero ─────────────────────────────────────────────────────────────────────
 function Hero() {
   return (
-    <section id="top" className="pt-28 pb-20 px-6 bg-gradient-to-b from-[#f4f2ff] to-white">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center gap-12">
-        <div className="flex-1 text-center md:text-left">
-          <span className="inline-block bg-[#6B5CE7]/10 text-[#6B5CE7] text-xs font-semibold px-3 py-1 rounded-full mb-4 uppercase tracking-wide">
-            IT-Hilfe aus der Region
-          </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold leading-tight text-[#1a1a2e] mb-5">
-            Technik-Probleme?
-            <br />
-            <span className="text-[#6B5CE7]">Ich löse sie für Sie.</span>
+    <section id="top" className="pt-28 pb-10 px-6 bg-white">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-10">
+        <div className="flex-1">
+          <h1 className="text-6xl md:text-7xl font-black leading-[1.0] text-[#1a1a2e] mb-0">
+            WLAN weg?
           </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-lg">
-            Ob der Computer streikt, das Internet hakelt oder ein neues Gerät einrichten – ich
-            helfe Ihnen schnell, verständlich und ohne kompliziertes Fachchinesisch.
-            Im Kanton Glarus und Umgebung komme ich direkt zu Ihnen.
+          <h2 className="text-6xl md:text-7xl font-black leading-[1.0] text-[#6B5CE7] mb-6">
+            Ich bin da.
+          </h2>
+          <p className="text-lg text-gray-600 mb-8 max-w-md leading-relaxed">
+            Kein Einschicken, kein Telefon-Support –<br />
+            ich löse das Problem direkt bei Ihnen zu Hause.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center md:justify-start">
+          <div className="flex flex-col sm:flex-row gap-3">
             <a
               href="#kontakt"
-              className="bg-[#6B5CE7] hover:bg-[#4A3DC7] text-white font-semibold px-7 py-3.5 rounded-full transition-colors text-center"
+              className="bg-[#6B5CE7] hover:bg-[#4A3DC7] text-white font-bold px-7 py-3.5 rounded-full transition-colors text-center text-sm"
             >
               Kostenlos anfragen
             </a>
             <a
               href="#leistungen"
-              className="border border-gray-300 hover:border-[#6B5CE7] text-gray-700 hover:text-[#6B5CE7] font-semibold px-7 py-3.5 rounded-full transition-colors text-center"
+              className="border border-gray-300 hover:border-[#6B5CE7] text-gray-700 hover:text-[#6B5CE7] font-bold px-7 py-3.5 rounded-full transition-colors text-center text-sm"
             >
               Was ich anbiete
             </a>
           </div>
         </div>
-        <div className="flex-shrink-0">
-          <div className="w-56 h-56 rounded-3xl bg-[#6B5CE7]/10 flex items-center justify-center shadow-xl">
+        <div className="flex-shrink-0 self-start mt-2">
+          <div className="w-44 h-44 md:w-52 md:h-52 rounded-2xl overflow-hidden border-2 border-[#6B5CE7] shadow-lg">
             <Image
-              src="/logo.png"
-              alt="J.Huser IT-Services"
-              width={160}
-              height={160}
-              className="object-contain"
+              src="/me.png"
+              alt="Janis Huser"
+              width={208}
+              height={208}
+              className="object-cover w-full h-full object-top"
               priority
             />
           </div>
@@ -55,17 +53,15 @@ function Hero() {
 // ─── Trust bar ────────────────────────────────────────────────────────────────
 function TrustBar() {
   const points = [
-    { icon: "✅", text: "Kein Fachchinesisch" },
-    { icon: "🏔️", text: "Kanton Glarus & Umgebung" },
-    { icon: "💬", text: "Verständliche Erklärungen" },
-    { icon: "⚡", text: "Schnelle Hilfe" },
-    { icon: "🔒", text: "Seriös & diskret" },
+    { icon: "⚡", text: "Direkt bei Ihnen zu Hause" },
+    { icon: "🔒", text: "Keine versteckten Kosten" },
+    { icon: "💬", text: "Kein Fachchinesisch" },
   ];
   return (
-    <section className="bg-white border-y border-gray-100 py-6 px-6">
-      <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-3">
+    <section className="bg-gray-50 border-y border-gray-200 py-4 px-6">
+      <div className="max-w-5xl mx-auto flex flex-wrap justify-center gap-x-10 gap-y-2">
         {points.map((p) => (
-          <div key={p.text} className="flex items-center gap-2 text-sm text-gray-600 font-medium">
+          <div key={p.text} className="flex items-center gap-2 text-sm text-gray-600 font-semibold">
             <span>{p.icon}</span>
             <span>{p.text}</span>
           </div>
@@ -77,61 +73,33 @@ function TrustBar() {
 
 // ─── Services ─────────────────────────────────────────────────────────────────
 const services = [
-  {
-    icon: "💻",
-    title: "Computer langsam oder kaputt?",
-    desc: "Ich schaue mir Ihren Computer an, finde das Problem und bringe ihn wieder zum Laufen – ganz egal ob Windows oder Mac.",
-  },
-  {
-    icon: "🌐",
-    title: "Internet & WLAN Probleme",
-    desc: "Kein Internet, schlechtes WLAN oder Router-Probleme? Ich richte alles neu ein, damit Sie wieder sicher und stabil online sind.",
-  },
-  {
-    icon: "📱",
-    title: "Neues Handy oder Tablet einrichten",
-    desc: "Ich richte Ihr neues Gerät komplett ein, übertrage Ihre Fotos und Kontakte und zeige Ihnen, wie alles funktioniert.",
-  },
-  {
-    icon: "🛡️",
-    title: "Schutz vor Viren & Betrug",
-    desc: "Ich schütze Ihren Computer vor Viren, verdächtigen Programmen und Online-Betrug – damit Sie sicher surfen können.",
-  },
-  {
-    icon: "🖨️",
-    title: "Drucker & Zubehör anschliessen",
-    desc: "Drucker druckt nicht mehr? Ich schliesse alle Geräte an, installiere die nötigen Programme und teste alles durch.",
-  },
-  {
-    icon: "📧",
-    title: "E-Mail & Programme einrichten",
-    desc: "Ich richte Ihr E-Mail-Konto ein, installiere Programme und helfe Ihnen, alles richtig zu nutzen.",
-  },
+  { icon: "💻", text: "«Mein PC ist so langsam!»" },
+  { icon: "🌐", text: "«Das Internet geht nicht mehr!»" },
+  { icon: "📱", text: "«Wie richte ich mein neues Handy ein?»" },
+  { icon: "🛡️", text: "«Ich glaube, ich habe einen Virus!»" },
+  { icon: "🖨️", text: "«Der Drucker macht nichts mehr!»" },
+  { icon: "📧", text: "«Meine E-Mails sind weg!»" },
 ];
 
 function Services() {
   return (
-    <section id="leistungen" className="py-20 px-6 bg-[#f4f2ff]/40">
+    <section id="leistungen" className="py-16 px-6 bg-white">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-[#1a1a2e] mb-3">Was ich für Sie tun kann</h2>
-          <p className="text-gray-500 max-w-xl mx-auto">
-            Egal wie gross oder klein das Problem – ich helfe Ihnen gerne. Hier sind die häufigsten Dinge, bei denen ich unterstützen kann.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <p className="text-xs font-bold text-[#6B5CE7] uppercase tracking-widest mb-5">
+          Häufige Fragen, die ich beantworte
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
           {services.map((s) => (
             <div
-              key={s.title}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-md hover:border-[#6B5CE7]/30 transition-all"
+              key={s.text}
+              className="flex items-center gap-3 bg-gray-100 rounded-xl px-4 py-3"
             >
-              <div className="text-3xl mb-3">{s.icon}</div>
-              <h3 className="font-bold text-[#1a1a2e] mb-2">{s.title}</h3>
-              <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
+              <span className="text-xl flex-shrink-0">{s.icon}</span>
+              <span className="text-sm font-semibold text-[#1a1a2e]">{s.text}</span>
             </div>
           ))}
         </div>
-        <p className="text-center text-sm text-gray-400 mt-8">
+        <p className="text-sm text-gray-400 mt-6">
           Ihr Problem ist nicht dabei?{" "}
           <a href="#kontakt" className="text-[#6B5CE7] underline">
             Fragen Sie einfach an
@@ -144,47 +112,99 @@ function Services() {
 }
 
 // ─── Pricing ──────────────────────────────────────────────────────────────────
-const pricingItems = [
-  {
-    title: "IT-Support",
-    price: "75 CHF / Stunde",
-    detail: "Abrechnung im 15-Minuten-Takt",
-  },
-  {
-    title: "Software-Development",
-    price: "160 CHF / Stunde",
-    detail: "Abrechnung im 15-Minuten-Takt",
-  },
-  {
-    title: "Anreise",
-    price: "0.50 CHF / km",
-    detail: "Faire Wegpauschale in der Region und darüber hinaus",
-  },
-];
-
 function Pricing() {
+  const items = [
+    { icon: "🖥️", label: "IT-Support", value: "75 CHF / Std." },
+    { icon: "🚗", label: "Anreise", value: "0.50 CHF / km" },
+    { icon: "🎁", label: "Erstberatung", value: "Kostenlos" },
+  ];
   return (
-    <section id="preise" className="py-20 px-6 bg-white">
+    <section id="preise" className="py-16 px-6 bg-white border-t border-gray-100">
       <div className="max-w-5xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-[#1a1a2e] mb-3">Klare Preise</h2>
-          <p className="text-gray-500 max-w-2xl mx-auto">
-            Transparent, nachvollziehbar und ohne versteckte Kosten. Sie sehen vorab, womit Sie rechnen können.
-          </p>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {pricingItems.map((item) => (
+        <p className="text-xs font-bold text-[#6B5CE7] uppercase tracking-widest mb-5">
+          Preise
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          {items.map((item) => (
             <div
-              key={item.title}
-              className="rounded-3xl border border-gray-100 bg-[#f4f2ff]/60 p-7 shadow-sm"
+              key={item.label}
+              className="flex items-center gap-3 bg-gray-100 rounded-xl px-5 py-4"
             >
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6B5CE7] mb-3">
-                {item.title}
-              </p>
-              <p className="text-3xl font-extrabold text-[#1a1a2e] mb-3">{item.price}</p>
-              <p className="text-sm text-gray-500 leading-relaxed">{item.detail}</p>
+              <span className="text-2xl flex-shrink-0">{item.icon}</span>
+              <div>
+                <p className="text-xs font-bold text-gray-400 uppercase tracking-wide mb-0.5">
+                  {item.label}
+                </p>
+                <p className="text-base font-extrabold text-[#6B5CE7]">{item.value}</p>
+              </div>
             </div>
           ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+// ─── KMU / B2B ────────────────────────────────────────────────────────────────
+const kmuServices = [
+  { icon: "🗂️", text: "Papierloses Büro einführen" },
+  { icon: "☁️", text: "Cloud-Migration & -Betrieb" },
+  { icon: "🔧", text: "Softwareauswahl & Einführung" },
+  { icon: "📊", text: "Prozesse & Abläufe optimieren" },
+  { icon: "🛡️", text: "IT-Sicherheit & Datenschutz" },
+  { icon: "🖥️", text: "IT-Infrastruktur & Support" },
+];
+
+function KMU() {
+  return (
+    <section id="kmu" className="py-16 px-6 bg-[#1a1a2e]">
+      <div className="max-w-5xl mx-auto">
+        <p className="text-xs font-bold text-[#6B5CE7] uppercase tracking-widest mb-4">
+          IT-Beratung für KMU &amp; Gewerbe
+        </p>
+        <h2 className="text-4xl md:text-5xl font-black text-white leading-tight mb-2">
+          Ihr Betrieb,
+        </h2>
+        <h2 className="text-4xl md:text-5xl font-black text-[#6B5CE7] leading-tight mb-6">
+          digital &amp; effizient.
+        </h2>
+        <p className="text-gray-400 max-w-lg mb-10 leading-relaxed">
+          Prozesse optimieren, Kosten senken, sicher in die Cloud – ich begleite Sie vom ersten Schritt bis zur Umsetzung.
+        </p>
+        <div className="grid grid-cols-3 gap-3 mb-8">
+          {[
+            { label: "Ausbildung", value: "BSc Informatik" },
+            { label: "Erfahrung", value: "5+ Jahre IT" },
+            { label: "Branchen", value: "KMU, Handel, Gastronomie & mehr" },
+          ].map((c) => (
+            <div key={c.label} className="bg-white/5 border border-white/10 rounded-xl p-4">
+              <p className="text-xs font-bold text-[#6B5CE7] uppercase tracking-widest mb-1">{c.label}</p>
+              <p className="text-sm font-bold text-white leading-snug">{c.value}</p>
+            </div>
+          ))}
+        </div>
+        <p className="text-xs font-bold text-[#6B5CE7] uppercase tracking-widest mb-4">
+          Leistungen
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-8">
+          {kmuServices.map((s) => (
+            <div key={s.text} className="flex items-center gap-3 bg-white/5 rounded-xl px-4 py-3">
+              <span className="text-xl flex-shrink-0">{s.icon}</span>
+              <span className="text-sm font-semibold text-gray-200">{s.text}</span>
+            </div>
+          ))}
+        </div>
+        <div className="bg-white/5 border border-white/10 rounded-2xl p-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div>
+            <p className="font-bold text-white mb-1">Transparente Konditionen.</p>
+            <p className="text-sm text-gray-400">
+              Erstgespräch kostenlos – danach individuelle Offerte, keine Überraschungen.
+            </p>
+          </div>
+          <div className="flex-shrink-0">
+            <p className="text-4xl font-black text-[#6B5CE7]">160 CHF</p>
+            <p className="text-sm text-gray-400">/ Std.</p>
+          </div>
         </div>
       </div>
     </section>
@@ -194,42 +214,25 @@ function Pricing() {
 // ─── How it works ─────────────────────────────────────────────────────────────
 function HowItWorks() {
   const steps = [
-    {
-      num: "1",
-      title: "Kontakt aufnehmen",
-      desc: "Schreiben Sie mir eine Nachricht oder rufen Sie an. Kein kompliziertes Formular.",
-    },
-    {
-      num: "2",
-      title: "Problem schildern",
-      desc: "Einfach beschreiben, was nicht funktioniert. Kein technisches Wissen nötig.",
-    },
-    {
-      num: "3",
-      title: "Termin vereinbaren",
-      desc: "Ich komme zu Ihnen nach Hause oder wir lösen es per Fernzugriff.",
-    },
-    {
-      num: "4",
-      title: "Alles läuft wieder",
-      desc: "Ich erkläre Ihnen, was ich gemacht habe – verständlich und in Ruhe.",
-    },
+    { num: "1", title: "Kontakt aufnehmen", desc: "Schreiben Sie mir eine Nachricht oder rufen Sie an." },
+    { num: "2", title: "Problem schildern", desc: "Einfach beschreiben, was nicht funktioniert. Kein technisches Wissen nötig." },
+    { num: "3", title: "Termin vereinbaren", desc: "Ich komme zu Ihnen nach Hause oder wir lösen es per Fernzugriff." },
+    { num: "4", title: "Alles läuft wieder", desc: "Ich erkläre Ihnen, was ich gemacht habe – verständlich und in Ruhe." },
   ];
   return (
-    <section className="py-20 px-6 bg-white">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-extrabold text-[#1a1a2e] mb-3">So einfach geht&apos;s</h2>
-          <p className="text-gray-500">In vier Schritten zu Ihrem funktionierenden Gerät.</p>
-        </div>
+    <section className="py-16 px-6 bg-white border-t border-gray-100">
+      <div className="max-w-5xl mx-auto">
+        <p className="text-xs font-bold text-[#6B5CE7] uppercase tracking-widest mb-5">
+          So einfach geht&apos;s
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {steps.map((s) => (
-            <div key={s.num} className="text-center">
-              <div className="w-12 h-12 rounded-full bg-[#6B5CE7] text-white text-lg font-extrabold flex items-center justify-center mx-auto mb-4">
+            <div key={s.num}>
+              <div className="w-10 h-10 rounded-full bg-[#6B5CE7] text-white text-sm font-black flex items-center justify-center mb-4">
                 {s.num}
               </div>
-              <h3 className="font-bold text-[#1a1a2e] mb-2">{s.title}</h3>
-              <p className="text-sm text-gray-500">{s.desc}</p>
+              <h3 className="font-bold text-[#1a1a2e] mb-1 text-sm">{s.title}</h3>
+              <p className="text-sm text-gray-500 leading-relaxed">{s.desc}</p>
             </div>
           ))}
         </div>
@@ -241,42 +244,34 @@ function HowItWorks() {
 // ─── About ────────────────────────────────────────────────────────────────────
 function About() {
   return (
-    <section id="ueber-mich" className="py-20 px-6 bg-[#f4f2ff]/40">
-      <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-12">
+    <section id="ueber-mich" className="py-16 px-6 bg-gray-50 border-t border-gray-100">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-start gap-10">
         <div className="flex-shrink-0">
-          <div className="w-48 h-48 rounded-3xl overflow-hidden shadow-lg">
+          <div className="w-40 h-40 rounded-2xl overflow-hidden border-2 border-[#6B5CE7] shadow-md">
             <Image
               src="/me.png"
               alt="Janis Huser"
-              width={192}
-              height={192}
-              className="object-cover w-full h-full"
+              width={160}
+              height={160}
+              className="object-cover w-full h-full object-top"
             />
           </div>
         </div>
         <div>
-          <h2 className="text-3xl font-extrabold text-[#1a1a2e] mb-4">Wer steckt dahinter?</h2>
-          <p className="text-gray-600 leading-relaxed mb-4">
-            Ich bin Janis Huser – ein leidenschaftlicher IT-Fachmann aus der Schweiz. Ich helfe
-            Privatpersonen und kleinen Unternehmen dabei, ihre Technik-Probleme zu lösen. Mir ist
-            wichtig, dass Sie wirklich verstehen, was ich tue – und nicht einfach ein Gerät
-            abgeben und hoffen müssen.
+          <p className="text-xs font-bold text-[#6B5CE7] uppercase tracking-widest mb-3">Über mich</p>
+          <h2 className="text-3xl font-black text-[#1a1a2e] mb-4">Wer steckt dahinter?</h2>
+          <p className="text-gray-600 leading-relaxed mb-3">
+            Ich bin Janis Huser – ein leidenschaftlicher IT-Fachmann aus der Schweiz mit einem BSc
+            in Informatik und über 5 Jahren Erfahrung. Ich helfe Privatpersonen und kleinen Unternehmen
+            dabei, ihre Technik-Probleme zu lösen.
           </p>
           <p className="text-gray-600 leading-relaxed mb-6">
-            Ich erkläre alles auf Augenhöhe, nehme mir Zeit für Ihre Fragen und bin auch
-            nach dem Termin erreichbar, wenn etwas unklar ist.
+            Mir ist wichtig, dass Sie wirklich verstehen, was ich tue. Ich erkläre alles auf Augenhöhe,
+            nehme mir Zeit für Ihre Fragen und bin auch nach dem Termin erreichbar.
           </p>
-          <div className="flex flex-wrap gap-3">
-            {[
-              "Kanton Glarus & Umgebung",
-              "Faire Preise",
-              "Erfahrung seit Jahren",
-              "Datenschutz wird ernst genommen",
-            ].map((tag) => (
-              <span
-                key={tag}
-                className="bg-[#6B5CE7]/10 text-[#6B5CE7] text-xs font-semibold px-3 py-1 rounded-full"
-              >
+          <div className="flex flex-wrap gap-2">
+            {["BSc Informatik", "5+ Jahre IT-Erfahrung", "Kanton Glarus & Umgebung", "Datenschutz ernst genommen"].map((tag) => (
+              <span key={tag} className="bg-[#6B5CE7]/10 text-[#6B5CE7] text-xs font-bold px-3 py-1 rounded-full">
                 {tag}
               </span>
             ))}
@@ -290,116 +285,53 @@ function About() {
 // ─── Contact ──────────────────────────────────────────────────────────────────
 function Contact() {
   return (
-    <section id="kontakt" className="py-20 px-6 bg-white">
-      <div className="max-w-2xl mx-auto text-center">
-        <h2 className="text-3xl font-extrabold text-[#1a1a2e] mb-3">Nehmen Sie Kontakt auf</h2>
-        <p className="text-gray-500 mb-10">
-          Keine langen Formulare. Einfach schreiben oder anrufen – ich melde mich schnell zurück.
+    <section id="kontakt" className="py-16 px-6 bg-[#1a1a2e]">
+      <div className="max-w-5xl mx-auto">
+        <h2 className="text-3xl font-black text-white mb-2">
+          Einfach fragen – kein Problem!
+        </h2>
+        <p className="text-gray-400 mb-10 text-sm">
+          Erstberatung kostenlos &amp; unverbindlich
         </p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-10">
-          <a
-            href="mailto:info@jhuser-it-services.ch"
-            className="flex items-center gap-4 bg-[#f4f2ff] hover:bg-[#6B5CE7] hover:text-white text-[#1a1a2e] rounded-2xl p-5 transition-all group"
-          >
-            <span className="text-3xl">✉️</span>
-            <div className="text-left">
-              <p className="text-xs text-gray-400 group-hover:text-white/70 font-medium mb-0.5">E-Mail</p>
-              <p className="font-semibold text-sm">info@jhuser-it-services.ch</p>
-            </div>
-          </a>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           <a
             href="tel:+41775248685"
-            className="flex items-center gap-4 bg-[#f4f2ff] hover:bg-[#6B5CE7] hover:text-white text-[#1a1a2e] rounded-2xl p-5 transition-all group"
+            className="flex items-center gap-4 bg-white/5 hover:bg-[#6B5CE7] border border-white/10 text-white rounded-xl p-5 transition-all group"
           >
-            <span className="text-3xl">📞</span>
-            <div className="text-left">
-              <p className="text-xs text-gray-400 group-hover:text-white/70 font-medium mb-0.5">Telefon</p>
-              <p className="font-semibold text-sm">+41 77 524 86 85</p>
+            <span className="text-2xl">📞</span>
+            <div>
+              <p className="text-xs text-gray-400 group-hover:text-white/70 font-semibold mb-0.5 uppercase tracking-wide">Telefon</p>
+              <p className="font-bold text-sm">077 524 86 85</p>
+            </div>
+          </a>
+          <a
+            href="https://wa.me/41775248685"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-4 bg-white/5 hover:bg-[#25D366] border border-white/10 text-white rounded-xl p-5 transition-all group"
+          >
+            <span className="text-2xl">💬</span>
+            <div>
+              <p className="text-xs text-gray-400 group-hover:text-white/70 font-semibold mb-0.5 uppercase tracking-wide">WhatsApp</p>
+              <p className="font-bold text-sm">077 524 86 85</p>
+            </div>
+          </a>
+          <a
+            href="mailto:info@jhuser-it-services.ch"
+            className="flex items-center gap-4 bg-white/5 hover:bg-[#6B5CE7] border border-white/10 text-white rounded-xl p-5 transition-all group"
+          >
+            <span className="text-2xl">✉️</span>
+            <div>
+              <p className="text-xs text-gray-400 group-hover:text-white/70 font-semibold mb-0.5 uppercase tracking-wide">E-Mail</p>
+              <p className="font-bold text-sm">info@jhuser-it-services.ch</p>
             </div>
           </a>
         </div>
-        <div className="bg-[#6B5CE7] rounded-3xl p-8 text-white">
-          <h3 className="text-xl font-bold mb-2">Erstberatung kostenlos</h3>
-          <p className="text-white/80 text-sm mb-5">
-            Ich schaue mir Ihr Problem zuerst kostenlos an. Erst wenn ich weiss, was zu tun ist,
-            besprechen wir gemeinsam das weitere Vorgehen.
-          </p>
-          <a
-            href="mailto:info@jhuser-it-services.ch"
-            className="inline-block bg-white text-[#6B5CE7] font-bold px-6 py-3 rounded-full hover:bg-gray-100 transition-colors"
-          >
-            Jetzt anfragen →
-          </a>
-        </div>
       </div>
     </section>
   );
 }
 
-// ─── Impressum ────────────────────────────────────────────────────────────────
-function Impressum() {
-  return (
-    <section id="impressum" className="py-20 px-6 bg-white">
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-3xl font-extrabold text-[#1a1a2e] mb-8">Impressum</h2>
-        <div className="text-gray-600 leading-relaxed space-y-4">
-          <div>
-            <p className="font-semibold text-[#1a1a2e]">Anbieter</p>
-            <p>J.Huser IT Services</p>
-            <p>Abläschstrasse 66</p>
-            <p>8750 Glarus</p>
-            <p>Schweiz</p>
-          </div>
-          <div>
-            <p className="font-semibold text-[#1a1a2e]">UID</p>
-            <p>CHE-299.352.957</p>
-          </div>
-          <div>
-            <p className="font-semibold text-[#1a1a2e]">Kontakt</p>
-            <p>
-              E-Mail:{" "}
-              <a href="mailto:info@jhuser-it-services.ch" className="text-[#6B5CE7] hover:underline">
-                info@jhuser-it-services.ch
-              </a>
-            </p>
-            <p>
-              Telefon:{" "}
-              <a href="tel:+41775248685" className="text-[#6B5CE7] hover:underline">
-                +41 77 524 86 85
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-// ─── Footer ───────────────────────────────────────────────────────────────────
-function Footer() {
-  return (
-    <footer className="bg-[#1a1a2e] text-gray-400 py-10 px-6">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-        <a href="#top" className="flex items-center gap-2.5">
-          <svg width="32" height="32" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="36" height="36" rx="9" fill="#6B5CE7" />
-            <text x="18" y="24" textAnchor="middle" fontFamily="system-ui, sans-serif" fontWeight="800" fontSize="16" fill="white" letterSpacing="-0.5">JH</text>
-          </svg>
-          <span className="font-bold text-white/80 text-sm leading-tight">
-            J.Huser
-            <br />
-            <span className="font-normal text-gray-500 text-xs tracking-wide">IT-Services</span>
-          </span>
-        </a>
-        <p>© {new Date().getFullYear()} J.Huser IT-Services · Schweiz</p>
-        <div className="flex gap-6">
-          <a href="#impressum" className="hover:text-white transition-colors">Impressum</a>
-          <a href="#" className="hover:text-white transition-colors">Datenschutz</a>
-        </div>
-      </div>
-    </footer>
-  );
-}
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 export default function Home() {
@@ -411,10 +343,10 @@ export default function Home() {
         <TrustBar />
         <Services />
         <Pricing />
+        <KMU />
         <HowItWorks />
         <About />
         <Contact />
-        <Impressum />
       </main>
       <Footer />
     </>
