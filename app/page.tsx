@@ -40,7 +40,8 @@ function Hero() {
               alt="Janis Huser"
               width={208}
               height={208}
-              className="object-cover w-full h-full object-top"
+              className="object-cover w-full h-full"
+              style={{ objectPosition: 'center 35%' }}
               priority
             />
           </div>
@@ -253,7 +254,8 @@ function About() {
               alt="Janis Huser"
               width={160}
               height={160}
-              className="object-cover w-full h-full object-top"
+              className="object-cover w-full h-full"
+              style={{ objectPosition: 'center 35%' }}
             />
           </div>
         </div>
