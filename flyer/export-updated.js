@@ -23,7 +23,7 @@ const flyers = [
 (async () => {
   const browser = await puppeteer.launch({
     executablePath: '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
-    args: ['--no-sandbox'],
+    args: ['--no-sandbox', '--allow-file-access-from-files'],
   });
 
   for (const { html, outBase, type } of flyers) {
